@@ -4,7 +4,7 @@
   "description": "an application facilitating public transit",
   "main": "index.js",
   "scripts": {
-    "test": "jest src/tests",
+    "test": "jest src/tests && codecov --token=928d58ba-7311-493a-8cba-7e71b5165b3e",
     "start": "node server.js",
     "start:dev": "webpack-dev-server --mode development --hot",
     "build": "webpack --mode production"
@@ -68,9 +68,6 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/assetsTransformer.js",
       "\\.(css|less|scss)$": "<rootDir>/assetsTransformer.js"
     },
-    "setupFiles": [
-      "jest-localstorage-mock"
-    ],
     "setupTestFrameworkScriptFile": "<rootDir>/src/tests/__mocks__/setup.js",
     "testMatch": [
       "<rootDir>/src/tests/components/*.test.js"
