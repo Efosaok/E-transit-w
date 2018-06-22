@@ -1,9 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './public/bootstrap.min.css';
+import { BrowserRouter } from 'react-router-dom';
+import App from './components/root/App';
+import './public/css/bootstrap.min.css';
 
-const Index = () => {
-  return <div>Hello</div>;
-};
+const Index = () =>
+  (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
 
 ReactDOM.render(<Index />, document.getElementById('index'));
