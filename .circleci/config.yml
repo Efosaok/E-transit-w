@@ -15,7 +15,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install && npm install -g codecov
+      - run: npm i && sudo npm i -g codecov
 
       - save_cache:
           paths:
@@ -24,3 +24,4 @@ jobs:
         
       # run tests!
       - run: npm run test
+
