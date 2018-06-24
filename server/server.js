@@ -1,6 +1,6 @@
-import express from 'express';
-import winston from 'winston';
-import path from 'path';
+const express = require('express');
+const winston = require('winston');
+const path = require('path');
 
 const app = express();
 

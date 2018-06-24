@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest src/tests && codecov --token=928d58ba-7311-493a-8cba-7e71b5165b3e",
-    "start": "node server.js",
+    "start": "npm run build && node server/server.js",
     "start:dev": "webpack-dev-server --mode development --hot",
     "build": "webpack --mode production"
   },
