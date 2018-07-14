@@ -1,0 +1,25 @@
+%links-one {
+  font-family: 'Roboto', sans-serif;
+  color: #111;
+  font-weight: 300;
+  cursor: pointer;
+}
+a {
+  @extend %links-one;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #444;
+  cursor: pointer;
+}
+
+.links-stage-one {
+  @extend %links-one;
+}
+
+.links-stage-one:hover {
+  text-decoration: none;
+  color: #444;
+  cursor: pointer;
+}

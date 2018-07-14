@@ -1,0 +1,97 @@
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+%auth-page {
+  height: 100%;
+  background-image: url(backgroundimage.jpg);
+  background-size: 150% 150%;
+  background-repeat: repeat-x;
+  animation: animatedBackground 30s linear infinite;
+  font-family: 'Roboto', 'sans-serif';
+}
+
+%form-section {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes backdrop-hover {
+  from {
+    box-shadow: none;
+  }
+  to {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+  }
+}
+
+%form-hover {
+  animation-name: dackdrop-hover;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.form-signup:hover {
+  @extend %form-hover;
+}
+
+.form-section {
+  @extend %form-section;
+}
+
+.social-media-buttons {
+  margin-top: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.padded-input {
+  margin-bottom: 20px;
+}
+
+.terms-of-privacy-section {
+  font-size: 0.7em;
+  padding-bottom: 15px;
+}
+
+form {
+  width: 100%;
+}
+
+.action-button-section {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.form-fields {
+  margin-top: 25px;
+}
+.form-padder {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+h3 {
+  font-weight: 300;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 400;
+}
+
+.form-signup {
+  background-color: #fff;
+  width: 500px;
+  padding-top: 30px;
+  font-family: 'Roboto';
+}
+
+.signup-page {
+  @extend %auth-page;
+}

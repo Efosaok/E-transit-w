@@ -4,9 +4,9 @@
   "description": "an application facilitating public transit",
   "main": "index.js",
   "scripts": {
-    "test": "jest src/tests && codecov --token=928d58ba-7311-493a-8cba-7e71b5165b3e",
+    "test": "jest src/**/ && codecov --token=928d58ba-7311-493a-8cba-7e71b5165b3e",
     "start": "npm run build && node server/server.js",
-    "start:dev": "webpack-dev-server --mode development --hot",
+    "start:dev": "webpack-dev-server --hot --mode development",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -30,17 +30,24 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.16.3",
     "html-webpack-plugin": "^3.2.0",
+    "lodash.debounce": "^4.0.8",
     "logger": "0.0.1",
     "morgan": "^1.9.0",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
+    "react-autobind": "^1.0.6",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
+    "short-id": "0.1.0-1",
+    "shortid": "^2.2.8",
+    "validatorjs": "^3.14.2",
     "winston": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
@@ -48,16 +55,21 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.12.0",
+    "eslint-import-resolver-alias": "^1.1.0",
+    "eslint-import-resolver-webpack": "^0.10.1",
+    "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.9.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
     "jest": "^23.1.0",
     "jest-localstorage-mock": "^2.2.0",
+    "node-sass": "^4.9.0",
     "nodemon": "^1.17.5",
+    "react-svg-loader": "^2.1.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
-    "webpack": "^4.12.0",
+    "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
   },
@@ -66,19 +78,24 @@
     "collectCoverage": true,
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/assetsTransformer.js",
-      "\\.(css|less|scss)$": "<rootDir>/assetsTransformer.js"
+      "\\.(css|less|scss)$": "<rootDir>/assetsTransformer.js",
+      "Components(.*)$": "<rootDir>/src/components/$1"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/src/tests/__mocks__/setup.js",
     "testMatch": [
-      "<rootDir>/src/tests/components/*.test.js"
+      "<rootDir>/src/**/**/tests/*.js"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>/src/tests/__mocks__/",
-      "<rootDir>/dist"
+      "<rootDir>/src/index.js",
+      "<rootDir>/src/public/js/bootstrap.bundle.js",
+      "<rootDir>/src/components/root/"
     ],
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!<rootDir>/src/index.js"
+      "!<rootDir>/src/index.js",
+      "!<rootDir>/src/components/root/App.js",
+      "!<rootDir>/src/components/root/Main.js",
+      "!<rootDir>/src/public/js/bootstrap.bundle.js",
+      "src/**/*.{js,jsx}"
     ],
     "globals": {
       "Materialize": true

@@ -1,0 +1,23 @@
+%input-fields {
+  font-weight: 300;
+  font-size: 1.1em;
+  border-radius: 0px;
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 50px;
+  padding: 0.5rem;
+}
+
+.inputfield:focus {
+  border: 1px solid #000;
+}
+
+.form-control {
+  outline: none;
+}
+
+.inputfield {
+  @extend %input-fields;
+}

@@ -1,0 +1,15 @@
+%icons {
+  font-size: 1.5em;
+}
+
+%icons-on-hover {
+  left: 10px;
+  color: red;
+}
+.icon {
+  @extend %icons;
+}
+
+.icon:hover {
+  @extend %icons-on-hover;
+}

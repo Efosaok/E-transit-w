@@ -1,7 +1,10 @@
 require('dotenv').config();
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
 
+const hmrPlugin = new webpack.HotModuleReplacementPlugin();
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
   filename: './index.html',
@@ -12,6 +15,15 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
+      },
+      {
         test: /\.js?$/,
         exclude: /node_modules/,
         use: {
@@ -19,11 +31,27 @@ module.exports = {
         },
       },
       {
-        test: /\.(sass|scss)$/,
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: 'react-svg-loader',
+            options: {
+              jsx: true, // true outputs JSX tags
+            },
+          },
+        ],
+      },
+      {
+        test: /\.scss$/,
         use: [{
           loader: 'style-loader',
         }, {
           loader: 'css-loader',
+        }, {
+          loader: 'sass-loader',
         }],
       },
       {
@@ -37,8 +65,20 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    contentBase: './dist',
+    hot: true,
+  },
   plugins: [
     htmlPlugin,
     extractTextPlugin,
+    hmrPlugin,
   ],
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      Components: path.resolve(__dirname, 'src/components'),
+      Images: path.resolve(__dirname, 'src/public/images'),
+    },
+  },
 };

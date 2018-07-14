@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './components/root/App';
 import './public/css/bootstrap.min.css';
+import './public/css/animate.css';
+import './public/css/bootstrap-social.css';
 
 const Index = () =>
   (

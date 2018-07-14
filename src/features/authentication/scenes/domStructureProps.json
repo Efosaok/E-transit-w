@@ -1,0 +1,51 @@
+{
+  "signupDomStructureProps": [
+    {
+      "placeholder": "First name",
+      "name": "firstName",
+      "type": "text",
+      "labelText": "firstname (required)",
+      "labelFor": "firstName",
+      "id": "1",
+      "secondaryClassNames": "firstname"
+    },
+    {
+      "placeholder": "Last name",
+      "name": "lastName",
+      "type": "text",
+      "labelText": "lastname (required)",
+      "labelFor": "lastName",
+      "id": "2",
+      "secondaryClassNames": "lastname"
+    },
+    {
+      "placeholder": "Email",
+      "name": "email",
+      "type": "text",
+      "labelText": "email (required)",
+      "labelFor": "email",
+      "id": "3",
+      "secondaryClassNames": "email"
+    },
+    {
+      "placeholder": "Password",
+      "name": "password",
+      "type": "password",
+      "labelText": "password (required)",
+      "labelFor": "password",
+      "id": "4",
+      "secondaryClassNames": "password"
+    },
+    {
+      "placeholder": "Retype Password",
+      "name": "confirmPassword",
+      "type": "password",
+      "labelText": "retype password (required)",
+      "labelFor": "password",
+      "id": "5",
+      "secondaryClassNames": "confirmpassword"
+    }
+  ],
+  "buttonTextSignup": "Sign Up",
+  "buttonTextSignIn": "Sign In"
+}

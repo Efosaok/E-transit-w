@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Header from '../containers/header/Header';
+import AuthPage from '../../features/authentication/scenes/AuthPage';
 
-const Main = props => (
+const Main = () => (
   <main>
     <Switch>
-      <Route exact path="/" component={Header} />
+      <Route exact path="/" component={AuthPage} />
     </Switch>
   </main>
 );
