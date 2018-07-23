@@ -11,6 +11,11 @@
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
 }
 
+.pure-button {
+  border-radius: 0px;
+  background-color: red;
+}
+
 .facebook-btn {
   @extend %btn;
   width: 100%;

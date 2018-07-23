@@ -9,7 +9,7 @@ describe('primary navbar test suite', () => {
   });
 
   it('renders with default brand class name if none is parsed', () => {
-    expect(wrapper.find('.nav-item')
+    expect(wrapper.find('.nav-item').at(0)
       .hasClass('brand-section')).toBeTruthy();
   });
 });

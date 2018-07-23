@@ -2,40 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Form from 'Components/form/Form';
 import SocialMediaButtonsSection from '../common/SocialMediaButtonsSection';
-import TermsOfPrivacyNav from '../common/TermsOfPrivacyNav';
-import InputInline from './InputInline';
 import domStructureProps from './domStructureProps.json';
 
 const { signupDomStructureProps } = domStructureProps;
 
-const SignupForm = ({ handleChange, handleSubmit, validationErrors }) => (
+const SigninForm = ({ handleChange, handleSubmit, validationErrors }) => (
   <React.Fragment>
     <div className="container">
-      <h3>Sign Up</h3>
+      <h3>Sign In</h3>
     </div>
-    <SocialMediaButtonsSection text="signup" />
+    <SocialMediaButtonsSection text="signin" />
     <form className="container form-fields">
-      <InputInline
-        handleChange={handleChange}
-        validationErrors={validationErrors}
-        handleSubmit={handleSubmit}
-      />
       <Form
-        inputFieldsProps={signupDomStructureProps.slice(2, 5)}
-        buttonText={domStructureProps.buttonTextSignup}
+        inputFieldsProps={signupDomStructureProps.slice(2, 4)}
+        buttonText={domStructureProps.buttonTextSignIn}
         handleChange={handleChange}
         validationErrors={validationErrors}
         handleSubmit={handleSubmit}
       />
-      <TermsOfPrivacyNav />
+      <br />
     </form>
   </React.Fragment>
 );
 
-export default SignupForm;
-
-SignupForm.propTypes = {
+SigninForm.propTypes = {
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   validationErrors: PropTypes.objectOf(PropTypes.string).isRequired,
 };
+
+export default SigninForm;

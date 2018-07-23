@@ -11,19 +11,21 @@ const SocialMediaButtons = ({
   </button>
 );
 
-const SocialMediaButtonsSection = () => (
+const SocialMediaButtonsSection = ({
+  text,
+}) => (
   <div className="social-media-buttons container">
     <RowGrid
       allComponents={[
         <SocialMediaButtons
           secondaryClassNames="facebook-btn"
-          text="sign up with facebook"
+          text={`${text} with facebook`}
           key="facebook"
           id={1}
         />,
         <SocialMediaButtons
           secondaryClassNames="google-btn"
-          text="sign up with google"
+          text={`${text} with google`}
           key="google"
           id={2}
         />,
@@ -38,4 +40,12 @@ export default SocialMediaButtonsSection;
 SocialMediaButtons.propTypes = {
   secondaryClassNames: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+};
+
+SocialMediaButtonsSection.defaultProps = {
+  text: '',
+};
+
+SocialMediaButtonsSection.propTypes = {
+  text: PropTypes.string,
 };

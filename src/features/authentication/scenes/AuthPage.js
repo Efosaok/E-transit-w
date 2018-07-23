@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import autoBind from 'react-autobind';
+import PropTypes from 'prop-types';
 import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
 import PrimaryFooter from 'Components/footer/PrimaryFooter';
-import SocialMediaButtonsSection from '../common/SocialMediaButtonsSection';
 import SignupForm from './SignupForm';
+import SigninForm from './SigninForm';
+
 import {
   validateAField,
   validateAllFields,
 } from '../validation/validateFields';
+
 import '../public/authpages.scss';
 
 /**
@@ -102,15 +105,36 @@ class AuthPage extends Component {
   }
   /**
    *
+   * @param {object} event dom event object
+   * @memberof AuthPage
+   * @returns {function} to dispacth signin action
+   */
+  signIn(event) {
+    event.preventDefault();
+    this.validateInputFields();
+    // TODO: sign in user here
+  }
+  /**
+   *
    * @returns {object} dom object
    * @memberof AuthPage
    */
   renderForm() {
+    const { pathname } = this.props.history.location;
+    if (pathname === '/') {
+      return (
+        <SignupForm
+          handleChange={this.handleChange}
+          validationErrors={this.state.validationErrors}
+          handleSubmit={this.signUp}
+        />
+      );
+    }
     return (
-      <SignupForm
+      <SigninForm
         handleChange={this.handleChange}
         validationErrors={this.state.validationErrors}
-        handleSubmit={this.signUp}
+        handleSubmit={this.signIn}
       />
     );
   }
@@ -123,17 +147,11 @@ class AuthPage extends Component {
    */
   render() {
     return (
-      <div className="signup-page">
+      <div className="auth-page">
         <PrimaryNavbar />
         <div className="form-section">
-          <div className="form-padder d-flex justify-content-center">
-            <div className="form-signup container">
-              <div className="container">
-                <h3>Sign Up</h3>
-              </div>
-              <SocialMediaButtonsSection />
-              {this.renderForm()}
-            </div>
+          <div className="form-padder d-flex justify-content-end">
+            <div className="form-auth container">{this.renderForm()}</div>
           </div>
         </div>
         <PrimaryFooter />
@@ -143,3 +161,9 @@ class AuthPage extends Component {
 }
 
 export default AuthPage;
+
+AuthPage.propTypes = {
+  history: PropTypes.shape({
+    location: PropTypes.objectOf(PropTypes.string),
+  }).isRequired,
+};

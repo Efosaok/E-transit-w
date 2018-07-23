@@ -6,6 +6,7 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={AuthPage} />
+      <Route exact path="/signin" component={AuthPage} />
     </Switch>
   </main>
 );

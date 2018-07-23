@@ -46,6 +46,6 @@
       "secondaryClassNames": "confirmpassword"
     }
   ],
-  "buttonTextSignup": "Sign Up",
-  "buttonTextSignIn": "Sign In"
+  "buttonTextSignup": "SIGN UP",
+  "buttonTextSignIn": "SIGN IN"
 }
